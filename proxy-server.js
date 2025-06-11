@@ -5,7 +5,11 @@ import fetch from 'node-fetch';
 const app = express();
 const port = 10000;
 
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.get('/api/dati', async (req, res) => {
     try {
