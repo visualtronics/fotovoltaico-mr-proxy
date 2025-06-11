@@ -33,4 +33,4 @@ app.get('/api/dati', async (req, res) => {
     }
 });
 
-app.listen(port, () => console.log('Proxy server running on port 3000'));
+app.listen(port, () => console.log('Proxy server running on port 10000'));
