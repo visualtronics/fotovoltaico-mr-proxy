@@ -1,0 +1,26 @@
+{
+  "name": "fotovoltaico-mr-proxy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visualtronics/fotovoltaico-mr-proxy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/visualtronics/fotovoltaico-mr-proxy/issues"
+  },
+  "homepage": "https://github.com/visualtronics/fotovoltaico-mr-proxy#readme",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0"
+  }
+}
