@@ -5,11 +5,24 @@ import fetch from 'node-fetch';
 const app = express();
 const port = 10000;
 
-app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// Add this CORS middleware *before* your routes
+app.use((req, res, next) => {
+  // Set the allowed origin. Replace with '*' to allow any origin (less secure)
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  // Set the allowed headers for preflight requests
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Origin');
+
+  // Set the allowed methods for preflight requests
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Include the methods your client uses
+
+  // Handle preflight OPTIONS requests
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200); // Respond to preflight request
+  } else {
+    next(); // Continue to the next middleware or route handler
+  }
+});
 
 app.get('/api/dati', async (req, res) => {
     try {
